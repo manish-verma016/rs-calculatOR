@@ -10,8 +10,8 @@
 body {
     width: 100%;
     height: 100vh;
-    display: flex
-;
+    display: flex;
+
     justify-content: center;
     align-items: center;
     background: linear-gradient(45deg, rgb(48, 45, 45), black);
@@ -153,3 +153,4 @@ button:hover{
     opacity: 0;
   }
 }
+
