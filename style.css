@@ -1,142 +1,201 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 body {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(45deg, rgb(48, 45, 45), black);
-    gap: 150px;
-    flex-direction: row;
-}
-.container{
-    border: 1px solid yellow;
-    border-radius: 10px;
-    padding: 20px;
-}
-/* .input{
-    border: 1px solid rgb(69, 69, 40);
-    width: 100%;
-    padding: 20px;
-    text-align: right;
-    
-} */
-input{
-    border: 1px solid rgb(69, 69, 40);
-    width: 210px;
-    padding: 20px;
-    text-align: right;
-    border-radius: 5px;
-    font-size: 18px;
-}
-input::placeholder{
-    height: 23px;
-    color: black;  
-    background-color: #ceced9;
-    border-radius: 5px;
-   
-} 
-/* .row{
-    
-} */
- .container button{
-    border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin: 10px;
-    cursor: pointer;
-    background-color: rgb(163, 183, 201);
-    
-    box-shadow:-2px -2px 10px #6767c6;
-    
-}
-button:hover{
-    background-color: rgb(246, 51, 30);;
-}
-.eqlbtn{
-    background-color: rgb(246, 51, 30);
-}
-.oprater{
-    background-color: orange;
-    font-size: 20px;
-   
-}
-.poweron{
-    display: flex;
-    
-}
-.poweron p{
-    display: flex;
-    padding-left: 10px;
-    color: yellow;
-}
-.poweron button{
-    width: 10px;
-    height: 10px;
-   background-color: white;
-}
-.poweron button:hover{
-    background-color: aquamarine;
-}
-.eqlbtn:hover{
-    background-color: aquamarine;
-}
-
-
-.set-btn {
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  align-items: center;
+  background: linear-gradient(135deg, #2c3014, #243b55);
+      gap: 20px;
 }
 
-.button-back {
-  background: #ff4d4d;
-  color: white;
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(193, 153, 153, 0.5);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(21, 202, 234, 0.2);
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.input {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 20px;
+  font-size: 24px;
+  text-align: right;
+  border-radius: 12px;
   border: none;
-  padding: 12px 35px;   /* thoda bada kiya */
-  font-size: 18px;
- 
-  border-radius: 50px;
+  outline: none;
+  background: rgba(0,0,0,0.2);
+  color: #fff;
+  /* box-shadow: inset 0 4px 10px rgba(0,0,0,0.5); */
+      box-shadow: inset 6px 2px 5px 18px rgba(0, 0, 0, 0.5);
+}
+
+input::placeholder {
+  color: #bbb;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container button {
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 8px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  text-align: center;   /* text center */
-  z-index: 1;           /* ripple niche chale */
+  font-size: 20px;
+  font-weight: bold;
+  background: rgba(255,255,255,0.15);
+ 
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  position: relative; 
+  overflow: hidden;   
+  z-index: 1;
 }
-
-/* Hover effect */
-.button-back:hover {
-  background: #e60000;
-  transform: scale(1.08);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
-
-/* Ripple effect */
-.button-back::after {
+.container button::after {
   content: "";
   position: absolute;
   width: 20px;
   height: 20px;
-  background: rgba(77, 215, 243, 0.5);
+  background: rgba(255,255,255,0.5);
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   opacity: 0;
   pointer-events: none;
-  z-index: 0;   /* ripple text ke niche rahega */
+  z-index: 0;
+}
+.container button:active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  from { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+  to { transform: translate(-50%, -50%) scale(8); opacity: 0; }
+}
+.container button:hover {
+  transform: scale(1.1);
+ 
+  background: linear-gradient(45deg, #737a70, #6979cb);
+ 
+}
+
+.container button.eqlbtn {
+  background: linear-gradient(45deg, #8ded6f, #e64f5c);
+  color: rgb(21, 21, 21);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.container button.eqlbtn:hover {
+  background: linear-gradient(45deg, #dd2476, #ff512f);
+  transform: scale(1.15);
+}
+
+.container button.oprater {
+  background: linear-gradient(45deg, #043c3f, #adbde0);
+  color: #f7fb25e7;
+  font-size: 23px;
+}
+
+.container button.oprater:hover {
+  background: linear-gradient(45deg, #5b86e5, #36d1dc);
+}
+
+/* Power section */
+.poweron {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.poweron p {
+  color: #f5d020;
+  font-size: 18px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.poweron button {
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 10px rgba(255,0,0,0.6);
+}
+
+.poweron button:hover {
+  background-color: limegreen;
+  box-shadow: 0 0 15px rgba(0,255,0,0.8);
+}
+
+/* Cancel button */
+.set-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.button-back {
+  background: linear-gradient(45deg, #ff4d4d, #ff1a1a);
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  font-size: 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.button-back:hover {
+  transform: scale(1.08);
+  background: linear-gradient(45deg, #e60000, #cc0000);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.button-back::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .button-back:active::after {
@@ -144,13 +203,55 @@ button:hover{
 }
 
 @keyframes ripple {
-  from {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 1;
+  from { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+  to { transform: translate(-50%, -50%) scale(8); opacity: 0; }
+}
+
+
+/* ================= Responsive ================== */
+.container {
+  width: 350px;
+  max-width: 90%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 300px;
+    padding: 20px;
   }
-  to {
-    transform: translate(-50%, -50%) scale(8);
-    opacity: 0;
+
+  .container button {
+    width: 55px;
+    height: 55px;
+    font-size: 18px;
+  }
+
+  input {
+    font-size: 22px;
+    padding: 15px;
   }
 }
 
+@media (max-width: 480px) {
+  .container {
+    width: 260px;
+    padding: 15px;
+  }
+
+  .container button {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+    margin: 6px;
+  }
+
+  input {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .button-back {
+    padding: 10px 25px;
+    font-size: 16px;
+  }
+}
